@@ -23,6 +23,8 @@
       {
         <button type="button" class="btn btn-outline-primary btn-sm" @onclick="() => AddMember()">Add</button>
       }
+
+      <button type="button" class="btn btn-outline-success btn-sm" style="margin-left: 0.5rem" @onclick="() => ClearMember()">Clear</button>
     </div>
   </div>
 </EditForm>
@@ -107,6 +109,12 @@ else
   private void UpdateMember()
   {
     messageBroker.UpdateMember(currentMember);
+    currentMember = new();
+  }
+
+  private void ClearMember()
+  {
+    messageBroker.ClearMember();
     currentMember = new();
   }
 }

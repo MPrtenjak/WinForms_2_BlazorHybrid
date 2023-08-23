@@ -36,6 +36,7 @@ namespace Simple_CRUD
             messageBroker.DeleteMemberEvent += DeleteMember;
             messageBroker.AddMemberEvent += AddMember;
             messageBroker.UpdateMemberEvent += UpdateMember;
+            messageBroker.ClearMemberEvent += ClearMember;
 
             this.FormClosing += (sender, e) =>
             {
@@ -43,6 +44,7 @@ namespace Simple_CRUD
                 messageBroker.DeleteMemberEvent -= DeleteMember;
                 messageBroker.AddMemberEvent -= AddMember;
                 messageBroker.UpdateMemberEvent -= UpdateMember;
+                messageBroker.ClearMemberEvent -= ClearMember;
             };
 
             blazorWebView1.Dock = DockStyle.Fill;
@@ -98,6 +100,11 @@ namespace Simple_CRUD
                 txt_address.Text = member.Address;
                 Update(this, null);
             }
+        }
+
+        private void ClearMember(object sender, EventArgs e)
+        {
+            Clear(this, null);
         }
 
         private bool selectDataRowWithMemberId(long memberId)

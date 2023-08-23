@@ -35,7 +35,6 @@
             label2 = new System.Windows.Forms.Label();
             txt_address = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
-            btn_clear = new System.Windows.Forms.Button();
             btn_blazor = new System.Windows.Forms.Button();
             tabControl1 = new System.Windows.Forms.TabControl();
             tabPage1 = new System.Windows.Forms.TabPage();
@@ -123,17 +122,6 @@
             label3.TabIndex = 12;
             label3.Text = "Address:";
             // 
-            // btn_clear
-            // 
-            btn_clear.Location = new System.Drawing.Point(541, 406);
-            btn_clear.Margin = new System.Windows.Forms.Padding(2);
-            btn_clear.Name = "btn_clear";
-            btn_clear.Size = new System.Drawing.Size(100, 41);
-            btn_clear.TabIndex = 16;
-            btn_clear.Text = "CLEAR";
-            btn_clear.UseVisualStyleBackColor = true;
-            btn_clear.Click += Clear;
-            // 
             // btn_blazor
             // 
             btn_blazor.Location = new System.Drawing.Point(655, 406);
@@ -192,7 +180,6 @@
             ClientSize = new System.Drawing.Size(776, 477);
             Controls.Add(tabControl1);
             Controls.Add(btn_blazor);
-            Controls.Add(btn_clear);
             Controls.Add(txt_address);
             Controls.Add(label3);
             Controls.Add(txt_lastname);
@@ -220,7 +207,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_blazor;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
