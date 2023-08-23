@@ -223,5 +223,11 @@ namespace Simple_CRUD
             dataGridView1.CurrentCell = null;
             isDoubleClick = false;
         }
+
+        private void btn_blazor_Click(object sender, EventArgs e)
+        {
+            var blazorForm = new BlazorForm();
+            blazorForm.Show();
+        }
     }
 }
