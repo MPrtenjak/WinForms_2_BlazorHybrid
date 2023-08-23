@@ -71,6 +71,11 @@ namespace Simple_CRUD
             String path = Application.StartupPath + @"\Database\crud.db";
             if (!File.Exists(path))
             {
+                // Create Folder if does not exists
+                var dbFolder = Application.StartupPath + @"\Database";
+                if (!Directory.Exists(dbFolder))
+                    Directory.CreateDirectory(dbFolder);
+
                 conn = new SQLiteConnection(connectString);
                 conn.Open();
                 string sql = "CREATE TABLE member (ID INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT, address TEXT)";
