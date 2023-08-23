@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.IO;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SQLite;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Simple_CRUD
 {
@@ -30,7 +24,8 @@ namespace Simple_CRUD
             GenerateDatabase();
         }
 
-        private void Add(object sender, EventArgs e) {
+        private void Add(object sender, EventArgs e)
+        {
 
             if (txt_firstname.Text != "" || txt_lastname.Text != "" || txt_address.Text != "")
             {
@@ -61,13 +56,15 @@ namespace Simple_CRUD
                     MessageBox.Show(ex.Message);
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show("Required Field!");
             }
 
         }
 
-        private void GenerateDatabase() {
+        private void GenerateDatabase()
+        {
             String path = Application.StartupPath + @"\Database\crud.db";
             if (!File.Exists(path))
             {
@@ -82,10 +79,15 @@ namespace Simple_CRUD
                 cmd = new SQLiteCommand(sql, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
+
+                // Add initial members
+                var memberRepository = new MemberRepository(connectString);
+                memberRepository.AddInitialMembers();
             }
         }
 
-        private void ReadData() {
+        private void ReadData()
+        {
             try
             {
                 conn = new SQLiteConnection(connectString);
@@ -107,7 +109,8 @@ namespace Simple_CRUD
                 dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -117,7 +120,8 @@ namespace Simple_CRUD
             ReadData();
         }
 
-        private void Edit(object sender, DataGridViewCellEventArgs e) {
+        private void Edit(object sender, DataGridViewCellEventArgs e)
+        {
             id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             txt_firstname.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             txt_lastname.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
@@ -125,7 +129,8 @@ namespace Simple_CRUD
             isDoubleClick = true;
         }
 
-        private void GetIdToDelete(object sender, DataGridViewCellEventArgs e) {
+        private void GetIdToDelete(object sender, DataGridViewCellEventArgs e)
+        {
             id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             isDoubleClick = false;
             txt_firstname.Text = "";
@@ -134,12 +139,15 @@ namespace Simple_CRUD
         }
 
 
-        private void Update(object sender, EventArgs e) {
-            if(isDoubleClick) { 
-                try {
+        private void Update(object sender, EventArgs e)
+        {
+            if (isDoubleClick)
+            {
+                try
+                {
                     conn.Open();
                     cmd = new SQLiteCommand();
-                    cmd.CommandText = @"UPDATE member set firstname=@firstname, lastname=@lastname, address=@address WHERE ID='"+ id +"'";
+                    cmd.CommandText = @"UPDATE member set firstname=@firstname, lastname=@lastname, address=@address WHERE ID='" + id + "'";
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@firstname", txt_firstname.Text);
                     cmd.Parameters.AddWithValue("@lastname", txt_lastname.Text);
@@ -161,13 +169,15 @@ namespace Simple_CRUD
 
                     conn.Close();
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     MessageBox.Show(ex.Message);
                 }
             }
         }
 
-        private void Delete(object sender, EventArgs e) {
+        private void Delete(object sender, EventArgs e)
+        {
             DialogResult dialogResult = MessageBox.Show("Do you to delete this record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (dialogResult == DialogResult.Yes)
@@ -198,7 +208,7 @@ namespace Simple_CRUD
             }
             else if (dialogResult == DialogResult.No)
             {
-                
+
             }
 
         }
