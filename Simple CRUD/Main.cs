@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Simple_CRUD
 {
@@ -28,6 +29,48 @@ namespace Simple_CRUD
             connectionStringHolder.ConnectionString = connectString;
 
             GenerateDatabase();
+
+            var messageBroker = Program.serviceProvider.GetService<MessageBroker>();
+            messageBroker.EditMemberEvent += EditMember;
+            messageBroker.DeleteMemberEvent += DeleteMember;
+
+            this.FormClosing += (sender, e) => {
+                messageBroker.EditMemberEvent -= EditMember;
+                messageBroker.DeleteMemberEvent -= DeleteMember;
+            };
+        }
+
+        private void DeleteMember(object sender, EventArgs e)
+        {
+            long memberId = ((MemberIdEventArgs)e).MemberId;
+            if (selectDataRowWithMemberId(memberId))
+            {
+                id = (int)memberId;
+                Delete(this, null);
+            }
+        }
+
+        private void EditMember(object sender, EventArgs e)
+        {
+            long memberId = ((MemberIdEventArgs)e).MemberId;
+            if (selectDataRowWithMemberId(memberId))
+            {
+                Edit(this, null);
+                txt_firstname.Focus();
+            }
+        }
+
+        private bool selectDataRowWithMemberId(long memberId)
+        {
+            var row = dataGridView1.Rows
+                .Cast<DataGridViewRow>()
+                .FirstOrDefault(row => (long)row.Cells[0].Value == memberId);
+
+            if (row == null)
+                return false;
+
+            row.Selected = true;
+            return true;
         }
 
         private void Add(object sender, EventArgs e)
