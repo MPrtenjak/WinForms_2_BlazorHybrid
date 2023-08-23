@@ -16,6 +16,7 @@ else
         <th>First Name</th>
         <th>Last Name</th>
         <th>Address</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +27,10 @@ else
           <td>@member.FirstName</td>
           <td>@member.LastName</td>
           <td>@member.Address</td>
+          <td>
+            <button @onclick="() => EditMember(member)">Edit</button>
+            <button @onclick="() => DeleteMember(member)">Delete</button>
+          </td>
         </tr>
       }
     </tbody>
@@ -53,5 +58,15 @@ else
   {
     members = memberRepository.ReadAllMembres();
     StateHasChanged();
+  }
+
+  private void EditMember(Member member)
+  {
+    messageBroker.EditMember(member.Id);
+  }
+
+  private void DeleteMember(Member member)
+  {
+    messageBroker.DeleteMember(member.Id);
   }
 }
