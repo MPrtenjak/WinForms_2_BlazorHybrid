@@ -55,8 +55,6 @@ namespace Simple_CRUD
             blazorWebView1.HostPage = "wwwroot\\index.html";
             blazorWebView1.Services = Program.serviceProvider;
             blazorWebView1.RootComponents.Add<Members>("#app");
-
-            tabControl1.SelectedIndex = 1;
         }
 
         private void DeleteMember(object sender, EventArgs e)

@@ -35,14 +35,8 @@
             label2 = new System.Windows.Forms.Label();
             txt_address = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
-            tabControl1 = new System.Windows.Forms.TabControl();
-            tabPage1 = new System.Windows.Forms.TabPage();
-            tabPage2 = new System.Windows.Forms.TabPage();
             blazorWebView1 = new Microsoft.AspNetCore.Components.WebView.WindowsForms.BlazorWebView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -51,12 +45,12 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            dataGridView1.Location = new System.Drawing.Point(3, 3);
+            dataGridView1.Location = new System.Drawing.Point(0, 0);
             dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 28;
-            dataGridView1.Size = new System.Drawing.Size(720, 324);
+            dataGridView1.Size = new System.Drawing.Size(776, 477);
             dataGridView1.TabIndex = 7;
             dataGridView1.CellClick += GetIdToDelete;
             dataGridView1.CellDoubleClick += Edit;
@@ -121,38 +115,6 @@
             label3.TabIndex = 12;
             label3.Text = "Address:";
             // 
-            // tabControl1
-            // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new System.Drawing.Point(30, 107);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(734, 358);
-            tabControl1.TabIndex = 18;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Location = new System.Drawing.Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            tabPage1.Size = new System.Drawing.Size(726, 330);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "DataGridView";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Controls.Add(blazorWebView1);
-            tabPage2.Location = new System.Drawing.Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            tabPage2.Size = new System.Drawing.Size(717, 249);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Blazor View";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
             // blazorWebView1
             // 
             blazorWebView1.Location = new System.Drawing.Point(274, 125);
@@ -166,7 +128,8 @@
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(776, 477);
-            Controls.Add(tabControl1);
+            Controls.Add(blazorWebView1);
+            Controls.Add(dataGridView1);
             Controls.Add(txt_address);
             Controls.Add(label3);
             Controls.Add(txt_lastname);
@@ -179,9 +142,6 @@
             Text = "Main";
             Load += Main_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -194,9 +154,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private Microsoft.AspNetCore.Components.WebView.WindowsForms.BlazorWebView blazorWebView1;
     }
 }
