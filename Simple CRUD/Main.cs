@@ -35,12 +35,14 @@ namespace Simple_CRUD
             messageBroker.EditMemberEvent += EditMember;
             messageBroker.DeleteMemberEvent += DeleteMember;
             messageBroker.AddMemberEvent += AddMember;
+            messageBroker.UpdateMemberEvent += UpdateMember;
 
             this.FormClosing += (sender, e) =>
             {
                 messageBroker.EditMemberEvent -= EditMember;
                 messageBroker.DeleteMemberEvent -= DeleteMember;
                 messageBroker.AddMemberEvent -= AddMember;
+                messageBroker.UpdateMemberEvent -= UpdateMember;
             };
 
             blazorWebView1.Dock = DockStyle.Fill;
@@ -82,6 +84,19 @@ namespace Simple_CRUD
                 txt_lastname.Text = member.LastName;
                 txt_address.Text = member.Address;
                 Add(this, null);
+            }
+        }
+
+        private void UpdateMember(object sender, EventArgs e)
+        {
+            Member member = ((MemberEventArgs)e).Member;
+
+            if (member != null)
+            {
+                txt_firstname.Text = member.FirstName;
+                txt_lastname.Text = member.LastName;
+                txt_address.Text = member.Address;
+                Update(this, null);
             }
         }
 

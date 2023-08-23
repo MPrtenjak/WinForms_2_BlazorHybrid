@@ -35,7 +35,6 @@
             label2 = new System.Windows.Forms.Label();
             txt_address = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
-            btn_update = new System.Windows.Forms.Button();
             btn_clear = new System.Windows.Forms.Button();
             btn_blazor = new System.Windows.Forms.Button();
             tabControl1 = new System.Windows.Forms.TabControl();
@@ -124,17 +123,6 @@
             label3.TabIndex = 12;
             label3.Text = "Address:";
             // 
-            // btn_update
-            // 
-            btn_update.Location = new System.Drawing.Point(422, 406);
-            btn_update.Margin = new System.Windows.Forms.Padding(2);
-            btn_update.Name = "btn_update";
-            btn_update.Size = new System.Drawing.Size(100, 41);
-            btn_update.TabIndex = 14;
-            btn_update.Text = "UPDATE";
-            btn_update.UseVisualStyleBackColor = true;
-            btn_update.Click += Update;
-            // 
             // btn_clear
             // 
             btn_clear.Location = new System.Drawing.Point(541, 406);
@@ -205,7 +193,6 @@
             Controls.Add(tabControl1);
             Controls.Add(btn_blazor);
             Controls.Add(btn_clear);
-            Controls.Add(btn_update);
             Controls.Add(txt_address);
             Controls.Add(label3);
             Controls.Add(txt_lastname);
@@ -233,7 +220,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_blazor;
         private System.Windows.Forms.TabControl tabControl1;

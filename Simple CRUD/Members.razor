@@ -15,7 +15,14 @@
       <InputText @bind-Value="currentMember.Address" class="form-control" placeholder="Address" />
     </div>
     <div class="col">
-      <button type="button" class="btn btn-outline-primary btn-sm" @onclick="() => AddMember()">Add</button>
+      @if (currentMember.Id > 0)
+      {
+        <button type="button" class="btn btn-outline-primary btn-sm" @onclick="() => UpdateMember()">Update</button>
+      }
+      else
+      {
+        <button type="button" class="btn btn-outline-primary btn-sm" @onclick="() => AddMember()">Add</button>
+      }
     </div>
   </div>
 </EditForm>
@@ -82,6 +89,7 @@ else
 
   private void EditMember(Member member)
   {
+    currentMember = member;
     messageBroker.EditMember(member.Id);
   }
 
@@ -93,6 +101,12 @@ else
   private void AddMember()
   {
     messageBroker.AddMember(currentMember);
+    currentMember = new();
+  }
+
+  private void UpdateMember()
+  {
+    messageBroker.UpdateMember(currentMember);
     currentMember = new();
   }
 }
