@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btn_add = new System.Windows.Forms.Button();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             label1 = new System.Windows.Forms.Label();
             txt_firstname = new System.Windows.Forms.TextBox();
@@ -48,17 +47,6 @@
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             SuspendLayout();
-            // 
-            // btn_add
-            // 
-            btn_add.Location = new System.Drawing.Point(308, 406);
-            btn_add.Margin = new System.Windows.Forms.Padding(2);
-            btn_add.Name = "btn_add";
-            btn_add.Size = new System.Drawing.Size(100, 41);
-            btn_add.TabIndex = 0;
-            btn_add.Text = "ADD";
-            btn_add.UseVisualStyleBackColor = true;
-            btn_add.Click += Add;
             // 
             // dataGridView1
             // 
@@ -224,7 +212,6 @@
             Controls.Add(label2);
             Controls.Add(txt_firstname);
             Controls.Add(label1);
-            Controls.Add(btn_add);
             Margin = new System.Windows.Forms.Padding(2);
             Name = "Main";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -239,8 +226,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_firstname;

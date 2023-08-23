@@ -3,6 +3,25 @@
 
 <h3>Members</h3>
 
+<EditForm Model="@currentMember">
+  <div class="row">
+    <div class="col">
+      <InputText @bind-Value="currentMember.FirstName" class="form-control" placeholder="First name" />
+    </div>
+    <div class="col">
+      <InputText @bind-Value="currentMember.LastName" class="form-control" placeholder="Last name" />
+    </div>
+    <div class="col">
+      <InputText @bind-Value="currentMember.Address" class="form-control" placeholder="Address" />
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-outline-primary btn-sm" @onclick="() => AddMember()">Add</button>
+    </div>
+  </div>
+</EditForm>
+
+<hr />
+
 @if (members == null)
 {
   <p><em>Loading...</em></p>
@@ -41,6 +60,7 @@ else
 @code {
   private MemberRepository memberRepository = null;
   private List<Member> members = null;
+  private Member currentMember = new();
 
   protected override void OnInitialized()
   {
@@ -68,5 +88,11 @@ else
   private void DeleteMember(Member member)
   {
     messageBroker.DeleteMember(member.Id);
+  }
+
+  private void AddMember()
+  {
+    messageBroker.AddMember(currentMember);
+    currentMember = new();
   }
 }

@@ -7,6 +7,7 @@ namespace Simple_CRUD.Data
         public event EventHandler DatabaseChangedEvent;
         public event EventHandler EditMemberEvent;
         public event EventHandler DeleteMemberEvent;
+        public event EventHandler AddMemberEvent;
 
         public void NotifyDatabaseChange()
         {
@@ -21,6 +22,11 @@ namespace Simple_CRUD.Data
         public void DeleteMember(long memberId)
         {
             DeleteMemberEvent?.Invoke(this, new MemberIdEventArgs(memberId));
+        }
+
+        public void AddMember(Member member)
+        {
+            AddMemberEvent?.Invoke(this, new MemberEventArgs(member));
         }
     }
 }
