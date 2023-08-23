@@ -4,6 +4,14 @@ Welcome to the WinForms_2_BlazorHybrid GitHub repository!
 
 This repository serves as a comprehensive guide for upgrading a legacy C# WinForms application with Blazor Hybrid. Throughout the process, we will walk you through each step of the upgrade and provide detailed documentation for easy reference.
 
+Throughout this tutorial we will enhance your application **from this form:**
+
+![Old windows Form](https://github.com/MPrtenjak/WinForms_2_BlazorHybrid/wiki/images/old-form.png)
+
+**To this:**
+
+![New Blazor Form](https://github.com/MPrtenjak/WinForms_2_BlazorHybrid/wiki/images/new-form.png)
+
 ## Important Note:
 
 Before proceeding, it is crucial to understand the following points:
