@@ -12,11 +12,8 @@ namespace Simple_CRUD
 
             blazorWebView1.Dock = DockStyle.Fill;
 
-            var services = new ServiceCollection();
-            services.AddWindowsFormsBlazorWebView();
-            services.AddBlazorWebViewDeveloperTools();
             blazorWebView1.HostPage = "wwwroot\\index.html";
-            blazorWebView1.Services = services.BuildServiceProvider();
+            blazorWebView1.Services = Program.serviceProvider;
             blazorWebView1.RootComponents.Add<Counter>("#app");
         }
     }

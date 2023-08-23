@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components.WebView.WindowsForms;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +16,16 @@ namespace Simple_CRUD
         [STAThread]
         static void Main()
         {
+            var services = new ServiceCollection();
+            services.AddWindowsFormsBlazorWebView();
+            services.AddBlazorWebViewDeveloperTools();
+            serviceProvider = services.BuildServiceProvider();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
         }
+
+        public static ServiceProvider serviceProvider;
     }
 }
