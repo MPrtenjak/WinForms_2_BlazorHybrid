@@ -1,0 +1,59 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0/win-x64",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {},
+    ".NETCoreApp,Version=v7.0/win-x64": {
+      "Simple CRUD/1.0.0": {
+        "dependencies": {
+          "System.Data.SQLite.Core": "1.0.118"
+        },
+        "runtime": {
+          "Simple CRUD.dll": {}
+        }
+      },
+      "Stub.System.Data.SQLite.Core.NetStandard/1.0.118": {
+        "runtime": {
+          "lib/netstandard2.1/System.Data.SQLite.dll": {
+            "assemblyVersion": "1.0.118.0",
+            "fileVersion": "1.0.118.0"
+          }
+        },
+        "native": {
+          "runtimes/win-x64/native/SQLite.Interop.dll": {
+            "fileVersion": "1.0.118.0"
+          }
+        }
+      },
+      "System.Data.SQLite.Core/1.0.118": {
+        "dependencies": {
+          "Stub.System.Data.SQLite.Core.NetStandard": "1.0.118"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Simple CRUD/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Stub.System.Data.SQLite.Core.NetStandard/1.0.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4TS8IZvDj0ud6utxfXI6zv9Ditk4U9Kt9KqLyAIQGcU3GXp5oGBHgGZifq+APcqRCayuN/MSE8t9ZZmygtU28A==",
+      "path": "stub.system.data.sqlite.core.netstandard/1.0.118",
+      "hashPath": "stub.system.data.sqlite.core.netstandard.1.0.118.nupkg.sha512"
+    },
+    "System.Data.SQLite.Core/1.0.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2V1PsfBeqWlZxF/VtB8lQKPfDBayCU8zD5Xc3Mq7cILOa2ZqpPDSwMP0fTfk1gtGSStSk//DxKiGy6zwCQs7Uw==",
+      "path": "system.data.sqlite.core/1.0.118",
+      "hashPath": "system.data.sqlite.core.1.0.118.nupkg.sha512"
+    }
+  }
+}

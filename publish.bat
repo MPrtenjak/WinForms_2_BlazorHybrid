@@ -1,8 +1,9 @@
-MsBuild.exe /t:Build /p:Configuration=Release
+rd /q /s publish
+dotnet publish -c Release /p:PublishProfile=FolderProfile
 cd ExecutableFiles
-rd /q /s STEP4
-md STEP4
-cd STEP4
-xcopy "..\..\Simple CRUD\bin\Release" /S /E 
+rd /q /s STEP5
+md STEP5
+cd STEP5
+xcopy "..\..\publish" /S /E 
 rd /q /s Database 
 cd ..\..
