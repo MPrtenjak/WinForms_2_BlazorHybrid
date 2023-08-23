@@ -1,4 +1,4 @@
-set currentStep="STEP11"
+set currentStep="STEP12"
 rd /q /s publish
 dotnet publish -c Release /p:PublishProfile=FolderProfile
 cd ExecutableFiles
