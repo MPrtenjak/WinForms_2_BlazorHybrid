@@ -7,6 +7,21 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+  protected override void OnInitialized()
+  {
+    counterData.CurrentValueChangedEvent += StateChanged;
+  }
+
+  public void Dispose()
+  {
+    counterData.CurrentValueChangedEvent -= StateChanged;
+  }
+
+  public void StateChanged(object sender, EventArgs e)
+  {
+    StateHasChanged();
+  }
+
   private void IncrementCount()
   {
     counterData.Increment();
