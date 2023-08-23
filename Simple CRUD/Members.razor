@@ -1,4 +1,5 @@
 ﻿@inject ConnectionStringHolder connectionStringHolder
+@inject MessageBroker messageBroker
 
 <h3>Members</h3>
 
@@ -39,6 +40,18 @@ else
   protected override void OnInitialized()
   {
     memberRepository = new MemberRepository(connectionStringHolder.ConnectionString);
+    messageBroker.DatabaseChangedEvent += StateChanged;
+    StateChanged(this, null);
+  }
+
+  public void Dispose()
+  {
+    messageBroker.DatabaseChangedEvent -= StateChanged;
+  }
+
+  public void StateChanged(object sender, EventArgs e)
+  {
     members = memberRepository.ReadAllMembres();
+    StateHasChanged();
   }
 }

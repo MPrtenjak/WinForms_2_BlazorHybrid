@@ -114,6 +114,9 @@ namespace Simple_CRUD
                 dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                var _messageBroker = Program.serviceProvider.GetService<MessageBroker>();
+                _messageBroker.NotifyDatabaseChange();
             }
             catch (Exception ex)
             {
