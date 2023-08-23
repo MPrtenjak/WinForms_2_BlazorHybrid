@@ -1,4 +1,5 @@
-﻿using System.Data.SQLite;
+﻿using System.Collections.Generic;
+using System.Data.SQLite;
 
 namespace Simple_CRUD
 {
@@ -23,6 +24,31 @@ namespace Simple_CRUD
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        public List<Member> ReadAllMembres()
+        {
+            var members = new List<Member>();
+            using (var conn = createConnection())
+            {
+                conn.Open();
+                var sql = "SELECT * FROM member";
+                var cmd = new SQLiteCommand(sql, conn);
+
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    members.Add(new Member
+                    {
+                        Id = (long)reader["Id"],
+                        FirstName = reader["FirstName"].ToString(),
+                        LastName = reader["LastName"].ToString(),
+                        Address = reader["Address"].ToString()
+                    });
+                }
+            }
+
+            return members;
         }
 
         public void AddInitialMembers()

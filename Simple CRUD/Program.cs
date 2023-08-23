@@ -21,6 +21,7 @@ namespace Simple_CRUD
             services.AddWindowsFormsBlazorWebView();
             services.AddBlazorWebViewDeveloperTools();
             services.AddSingleton<CounterData>();
+            services.AddSingleton<ConnectionStringHolder>();
 
             serviceProvider = services.BuildServiceProvider();
 

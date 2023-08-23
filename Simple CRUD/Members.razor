@@ -1,0 +1,44 @@
+﻿@inject ConnectionStringHolder connectionStringHolder
+
+<h3>Members</h3>
+
+@if (members == null)
+{
+  <p><em>Loading...</em></p>
+}
+else
+{
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var member in members)
+      {
+        <tr>
+          <td>@member.Id</td>
+          <td>@member.FirstName</td>
+          <td>@member.LastName</td>
+          <td>@member.Address</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
+
+
+@code {
+  private MemberRepository memberRepository = null;
+  private List<Member> members = null;
+
+  protected override void OnInitialized()
+  {
+    memberRepository = new MemberRepository(connectionStringHolder.ConnectionString);
+    members = memberRepository.ReadAllMembres();
+  }
+}

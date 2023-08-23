@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Simple_CRUD.Data;
+using System;
 using System.Data;
 using System.Data.SQLite;
 using System.IO;
@@ -20,7 +22,11 @@ namespace Simple_CRUD
         public Main()
         {
             InitializeComponent();
+
             connectString = @"Data Source=" + Application.StartupPath + @"\Database\crud.db;version=3";
+            var connectionStringHolder = Program.serviceProvider.GetService<ConnectionStringHolder>();
+            connectionStringHolder.ConnectionString = connectString;
+
             GenerateDatabase();
         }
 
