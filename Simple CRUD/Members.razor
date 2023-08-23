@@ -1,7 +1,16 @@
 ﻿@inject ConnectionStringHolder connectionStringHolder
 @inject MessageBroker messageBroker
 
-<h3>Members</h3>
+<div class="row">
+  <div class="col">
+    <h3>Members</h3>
+  </div>
+  <div class="col text-end">
+    <button type="button" class="btn btn-outline-success btn-sm" style="margin-left: 0.5rem" @onclick="() => OpenNewView()">New View</button>
+  </div>
+</div>
+
+<hr />
 
 <EditForm Model="@currentMember">
   <div class="row">
@@ -116,5 +125,10 @@ else
   {
     messageBroker.ClearMember();
     currentMember = new();
+  }
+
+  private void OpenNewView()
+  {
+    messageBroker.OpenNewView();
   }
 }

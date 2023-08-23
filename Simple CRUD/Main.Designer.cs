@@ -35,7 +35,6 @@
             label2 = new System.Windows.Forms.Label();
             txt_address = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
-            btn_blazor = new System.Windows.Forms.Button();
             tabControl1 = new System.Windows.Forms.TabControl();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage2 = new System.Windows.Forms.TabPage();
@@ -57,7 +56,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 28;
-            dataGridView1.Size = new System.Drawing.Size(711, 243);
+            dataGridView1.Size = new System.Drawing.Size(720, 324);
             dataGridView1.TabIndex = 7;
             dataGridView1.CellClick += GetIdToDelete;
             dataGridView1.CellDoubleClick += Edit;
@@ -122,17 +121,6 @@
             label3.TabIndex = 12;
             label3.Text = "Address:";
             // 
-            // btn_blazor
-            // 
-            btn_blazor.Location = new System.Drawing.Point(655, 406);
-            btn_blazor.Margin = new System.Windows.Forms.Padding(2);
-            btn_blazor.Name = "btn_blazor";
-            btn_blazor.Size = new System.Drawing.Size(100, 41);
-            btn_blazor.TabIndex = 17;
-            btn_blazor.Text = "BLAZOR";
-            btn_blazor.UseVisualStyleBackColor = true;
-            btn_blazor.Click += btn_blazor_Click;
-            // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
@@ -140,7 +128,7 @@
             tabControl1.Location = new System.Drawing.Point(30, 107);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(725, 277);
+            tabControl1.Size = new System.Drawing.Size(734, 358);
             tabControl1.TabIndex = 18;
             // 
             // tabPage1
@@ -149,7 +137,7 @@
             tabPage1.Location = new System.Drawing.Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            tabPage1.Size = new System.Drawing.Size(717, 249);
+            tabPage1.Size = new System.Drawing.Size(726, 330);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "DataGridView";
             tabPage1.UseVisualStyleBackColor = true;
@@ -179,7 +167,6 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(776, 477);
             Controls.Add(tabControl1);
-            Controls.Add(btn_blazor);
             Controls.Add(txt_address);
             Controls.Add(label3);
             Controls.Add(txt_lastname);
@@ -207,7 +194,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btn_blazor;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

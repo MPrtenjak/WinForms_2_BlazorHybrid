@@ -10,6 +10,7 @@ namespace Simple_CRUD.Data
         public event EventHandler AddMemberEvent;
         public event EventHandler UpdateMemberEvent;
         public event EventHandler ClearMemberEvent;
+        public event EventHandler OpenNewViewEvent;
 
         public void NotifyDatabaseChange()
         {
@@ -39,6 +40,11 @@ namespace Simple_CRUD.Data
         public void ClearMember()
         {
             ClearMemberEvent?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void OpenNewView()
+        {
+            OpenNewViewEvent?.Invoke(this, EventArgs.Empty);
         }
     }
 }

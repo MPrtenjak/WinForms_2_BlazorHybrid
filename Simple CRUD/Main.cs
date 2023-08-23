@@ -37,6 +37,8 @@ namespace Simple_CRUD
             messageBroker.AddMemberEvent += AddMember;
             messageBroker.UpdateMemberEvent += UpdateMember;
             messageBroker.ClearMemberEvent += ClearMember;
+            messageBroker.OpenNewViewEvent += OpenNewView;
+
 
             this.FormClosing += (sender, e) =>
             {
@@ -45,6 +47,7 @@ namespace Simple_CRUD
                 messageBroker.AddMemberEvent -= AddMember;
                 messageBroker.UpdateMemberEvent -= UpdateMember;
                 messageBroker.ClearMemberEvent -= ClearMember;
+                messageBroker.OpenNewViewEvent -= OpenNewView;
             };
 
             blazorWebView1.Dock = DockStyle.Fill;
@@ -105,6 +108,12 @@ namespace Simple_CRUD
         private void ClearMember(object sender, EventArgs e)
         {
             Clear(this, null);
+        }
+
+        private void OpenNewView(object sender, EventArgs e)
+        {
+            var blazorForm = new BlazorForm();
+            blazorForm.Show();
         }
 
         private bool selectDataRowWithMemberId(long memberId)
@@ -321,12 +330,6 @@ namespace Simple_CRUD
             dataGridView1.ClearSelection();
             dataGridView1.CurrentCell = null;
             isDoubleClick = false;
-        }
-
-        private void btn_blazor_Click(object sender, EventArgs e)
-        {
-            var blazorForm = new BlazorForm();
-            blazorForm.Show();
         }
     }
 }
