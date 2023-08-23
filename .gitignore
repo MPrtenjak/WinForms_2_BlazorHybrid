@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Make sure to include everything in ExecutableFiles.
+!ExecutableFiles/**
