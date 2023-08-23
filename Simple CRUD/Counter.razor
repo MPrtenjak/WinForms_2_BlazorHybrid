@@ -1,14 +1,14 @@
-﻿<h1>Counter</h1>
+﻿@inject CounterData counterData
 
-<p>Current count: @currentCount</p>
+<h1>Counter</h1>
+
+<p>Current count: @counterData.CurrentValue</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-  private int currentCount = 0;
-
   private void IncrementCount()
   {
-    currentCount++;
+    counterData.Increment();
   }
 }

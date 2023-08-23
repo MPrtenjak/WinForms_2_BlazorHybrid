@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.WebView.WindowsForms;
 using Microsoft.Extensions.DependencyInjection;
+using Simple_CRUD.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace Simple_CRUD
             var services = new ServiceCollection();
             services.AddWindowsFormsBlazorWebView();
             services.AddBlazorWebViewDeveloperTools();
+            services.AddSingleton<CounterData>();
+
             serviceProvider = services.BuildServiceProvider();
 
             Application.EnableVisualStyles();
