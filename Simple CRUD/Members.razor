@@ -9,27 +9,27 @@
 }
 else
 {
-  <table>
+  <table class="table">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Actions</th>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
       @foreach (var member in members)
       {
         <tr>
-          <td>@member.Id</td>
+          <th scope="row">@member.Id</th>
           <td>@member.FirstName</td>
           <td>@member.LastName</td>
           <td>@member.Address</td>
           <td>
-            <button @onclick="() => EditMember(member)">Edit</button>
-            <button @onclick="() => DeleteMember(member)">Delete</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" @onclick="() => EditMember(member)">Edit</button>
+            <button type="button" class="btn btn-outline-danger btn-sm" @onclick="() => DeleteMember(member)">Delete</button>
           </td>
         </tr>
       }
