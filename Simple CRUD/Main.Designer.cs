@@ -40,13 +40,20 @@
             btn_delete = new System.Windows.Forms.Button();
             btn_clear = new System.Windows.Forms.Button();
             btn_blazor = new System.Windows.Forms.Button();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            tabPage1 = new System.Windows.Forms.TabPage();
+            tabPage2 = new System.Windows.Forms.TabPage();
+            blazorWebView1 = new Microsoft.AspNetCore.Components.WebView.WindowsForms.BlazorWebView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // btn_add
             // 
             btn_add.Location = new System.Drawing.Point(57, 433);
-            btn_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btn_add.Margin = new System.Windows.Forms.Padding(2);
             btn_add.Name = "btn_add";
             btn_add.Size = new System.Drawing.Size(100, 41);
             btn_add.TabIndex = 0;
@@ -59,12 +66,13 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new System.Drawing.Point(30, 136);
-            dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridView1.Location = new System.Drawing.Point(3, 3);
+            dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 28;
-            dataGridView1.Size = new System.Drawing.Size(544, 277);
+            dataGridView1.Size = new System.Drawing.Size(530, 243);
             dataGridView1.TabIndex = 7;
             dataGridView1.CellClick += GetIdToDelete;
             dataGridView1.CellDoubleClick += Edit;
@@ -84,7 +92,7 @@
             // 
             txt_firstname.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_firstname.Location = new System.Drawing.Point(124, 47);
-            txt_firstname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            txt_firstname.Margin = new System.Windows.Forms.Padding(2);
             txt_firstname.Name = "txt_firstname";
             txt_firstname.Size = new System.Drawing.Size(175, 26);
             txt_firstname.TabIndex = 9;
@@ -93,7 +101,7 @@
             // 
             txt_lastname.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_lastname.Location = new System.Drawing.Point(412, 50);
-            txt_lastname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            txt_lastname.Margin = new System.Windows.Forms.Padding(2);
             txt_lastname.Name = "txt_lastname";
             txt_lastname.Size = new System.Drawing.Size(175, 26);
             txt_lastname.TabIndex = 11;
@@ -113,7 +121,7 @@
             // 
             txt_address.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_address.Location = new System.Drawing.Point(289, 88);
-            txt_address.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            txt_address.Margin = new System.Windows.Forms.Padding(2);
             txt_address.Name = "txt_address";
             txt_address.Size = new System.Drawing.Size(175, 26);
             txt_address.TabIndex = 13;
@@ -132,7 +140,7 @@
             // btn_update
             // 
             btn_update.Location = new System.Drawing.Point(196, 433);
-            btn_update.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btn_update.Margin = new System.Windows.Forms.Padding(2);
             btn_update.Name = "btn_update";
             btn_update.Size = new System.Drawing.Size(100, 41);
             btn_update.TabIndex = 14;
@@ -143,7 +151,7 @@
             // btn_delete
             // 
             btn_delete.Location = new System.Drawing.Point(319, 433);
-            btn_delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btn_delete.Margin = new System.Windows.Forms.Padding(2);
             btn_delete.Name = "btn_delete";
             btn_delete.Size = new System.Drawing.Size(100, 41);
             btn_delete.TabIndex = 15;
@@ -154,7 +162,7 @@
             // btn_clear
             // 
             btn_clear.Location = new System.Drawing.Point(459, 433);
-            btn_clear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btn_clear.Margin = new System.Windows.Forms.Padding(2);
             btn_clear.Name = "btn_clear";
             btn_clear.Size = new System.Drawing.Size(100, 41);
             btn_clear.TabIndex = 16;
@@ -173,11 +181,52 @@
             btn_blazor.UseVisualStyleBackColor = true;
             btn_blazor.Click += btn_blazor_Click;
             // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Location = new System.Drawing.Point(30, 136);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(544, 277);
+            tabControl1.TabIndex = 18;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(dataGridView1);
+            tabPage1.Location = new System.Drawing.Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            tabPage1.Size = new System.Drawing.Size(536, 249);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "DataGridView";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(blazorWebView1);
+            tabPage2.Location = new System.Drawing.Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            tabPage2.Size = new System.Drawing.Size(536, 249);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Blazor View";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // blazorWebView1
+            // 
+            blazorWebView1.Location = new System.Drawing.Point(274, 125);
+            blazorWebView1.Name = "blazorWebView1";
+            blazorWebView1.Size = new System.Drawing.Size(75, 23);
+            blazorWebView1.TabIndex = 0;
+            blazorWebView1.Text = "blazorWebView1";
+            // 
             // Main
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(637, 554);
+            Controls.Add(tabControl1);
             Controls.Add(btn_blazor);
             Controls.Add(btn_clear);
             Controls.Add(btn_delete);
@@ -188,14 +237,16 @@
             Controls.Add(label2);
             Controls.Add(txt_firstname);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
             Controls.Add(btn_add);
-            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "Main";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Main";
             Load += Main_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -214,6 +265,10 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_blazor;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private Microsoft.AspNetCore.Components.WebView.WindowsForms.BlazorWebView blazorWebView1;
     }
 }
 

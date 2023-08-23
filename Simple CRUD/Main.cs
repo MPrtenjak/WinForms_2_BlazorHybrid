@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
 using System.Linq;
+using Microsoft.AspNetCore.Components.WebView.WindowsForms;
 
 namespace Simple_CRUD
 {
@@ -34,10 +35,17 @@ namespace Simple_CRUD
             messageBroker.EditMemberEvent += EditMember;
             messageBroker.DeleteMemberEvent += DeleteMember;
 
-            this.FormClosing += (sender, e) => {
+            this.FormClosing += (sender, e) =>
+            {
                 messageBroker.EditMemberEvent -= EditMember;
                 messageBroker.DeleteMemberEvent -= DeleteMember;
             };
+
+            blazorWebView1.Dock = DockStyle.Fill;
+
+            blazorWebView1.HostPage = "wwwroot\\index.html";
+            blazorWebView1.Services = Program.serviceProvider;
+            blazorWebView1.RootComponents.Add<Members>("#app");
         }
 
         private void DeleteMember(object sender, EventArgs e)
